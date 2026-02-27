@@ -1,0 +1,18 @@
+name: C Build
+
+on:
+  push:
+    branches: [ main, development ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build with Make
+      run: make
+    - name: Check build
+      run: make check
